@@ -1,6 +1,7 @@
-drop procedure grtFogoes;
+
+drop procedure grtGrava;
 delimiter //
-create procedure grtFogoes(IN pId int)
+create procedure grtGrava(IN pId int)
 begin
 	declare vDone int default false;
 	declare vId char(16) default '';
@@ -18,17 +19,17 @@ begin
 			garantia = 12
 		where no = vId;
 		set vPrec = vPrec div 100;
-		if vPrec <= 300 then
-			insert into prdgar values(0,0,1,30000,0,0,0,0,0,0,0,0,0,0,vId,'            4609','');
-			insert into prdgar values(0,0,1,30000,0,0,0,0,0,0,0,0,0,0,vId,'            3641','');
-			elseif ((vPrec > 300) and (vPrec <= 600)) then
-				insert into prdgar values(0,0,30001,60000,0,0,0,0,0,0,0,0,0,0,vId,'            3480','');
-				insert into prdgar values(0,0,30001,60000,0,0,0,0,0,0,0,0,0,0,vId,'            3642','');
-				elseif ((vPrec > 600) and (vPrec <= 9999)) then 
-					insert into prdgar values(0,0,60001,999900,0,0,0,0,0,0,0,0,0,0,vId,'            3481','');
-					insert into prdgar values(0,0,60001,999900,0,0,0,0,0,0,0,0,0,0,vId,'            3643','');
+		if vPrec <= 150 then
+			insert into prdgar values(0,0,1,15000,0,0,0,0,0,0,0,0,0,0,vId,'            3483','');
+			insert into prdgar values(0,0,1,15000,0,0,0,0,0,0,0,0,0,0,vId,'            3969','');
+			elseif ((vPrec > 150) and (vPrec <= 300)) then
+				insert into prdgar values(0,0,15001,30000,0,0,0,0,0,0,0,0,0,0,vId,'            3517','');
+				insert into prdgar values(0,0,15001,30000,0,0,0,0,0,0,0,0,0,0,vId,'            3971','');
+				elseif ((vPrec > 300) and (vPrec <= 600)) then 
+					insert into prdgar values(0,0,30001,60000,0,0,0,0,0,0,0,0,0,0,vId,'            3533','');
+					insert into prdgar values(0,0,30001,60000,0,0,0,0,0,0,0,0,0,0,vId,'            3972','');
 		end if;
 	end if;
 end;
 //
-call grtFogoes()//
+call grtGrava()//
